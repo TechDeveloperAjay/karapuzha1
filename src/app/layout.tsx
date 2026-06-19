@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { Cormorant_Garamond, Jost } from "next/font/google";
+import "./globals.css";
+
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import WhatsAppConnect from "@/components/layout/WhatsAppConnect";
+
+// Configure fonts matching the original design
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-jost",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Karapuzha Water Scapes – Luxury Resort, Wayanad",
+  description: "Experience luxury waterfront villas at Karapuzha Water Scapes, Wayanad. Book directly for the best rates.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className={`${jost.variable} ${cormorantGaramond.variable} font-sans antialiased bg-gray-50 text-gray-900 flex flex-col min-h-screen`}>
+        <Header />
+        <main className="flex-grow pt-20">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppConnect />
+      </body>
+    </html>
+  );
+}

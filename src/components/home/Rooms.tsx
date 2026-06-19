@@ -1,0 +1,97 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const rooms = [
+  {
+    id: "lakeside",
+    name: "Lakeside Villa",
+    desc: "A beautifully appointed 2-bedroom villa opening directly to views of the Karapuzha Reservoir. Wake to still water and morning mist.",
+    image: "/assets/images/lakeside_villa.png",
+    features: ["2 Bedrooms", "Lake View", "Kitchenette", "Garden"],
+    occupancy: "Up to 4 guests",
+    badge: "Waterfront"
+  },
+  {
+    id: "forest",
+    name: "Forest Retreat Villa",
+    desc: "Surrounded by lush greenery and natural sounds, this villa offers an immersive forest experience with all modern comforts included.",
+    image: "/assets/images/forest_retreat.png",
+    features: ["2 Bedrooms", "Forest View", "Power Backup", "Furnished"],
+    occupancy: "Up to 4 guests",
+    badge: "Forest View"
+  },
+  {
+    id: "panorama",
+    name: "Panorama Villa",
+    desc: "Our most spacious offering with panoramic 270° views of the reservoir and hills. Perfect for romantic getaways and special occasions.",
+    image: "/assets/images/panorama_villa.png",
+    features: ["2 Bedrooms", "Panoramic View", "Private Deck", "Wi-Fi"],
+    occupancy: "Up to 4 guests",
+    badge: "Premium"
+  }
+];
+
+export default function Rooms() {
+  return (
+    <section id="rooms" className="py-24 bg-zinc-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-sm font-semibold tracking-widest uppercase text-[#D4AF37] mb-4 block">
+            Accommodation
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-serif font-medium text-zinc-900 mb-6">
+            Waterfront Villas
+          </h2>
+          <p className="text-lg text-zinc-600 font-light">
+            Spacious 2-bedroom villas designed for families, couples, and groups who value space, privacy, and stunning water views.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {rooms.map((room) => (
+            <div key={room.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+              <div className="relative h-64 w-full overflow-hidden">
+                <Image
+                  src={room.image}
+                  alt={room.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute top-4 left-4 bg-zinc-900/80 backdrop-blur-sm text-white text-xs tracking-widest uppercase px-3 py-1 rounded">
+                  {room.badge}
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-serif font-medium text-zinc-900 mb-3">{room.name}</h3>
+                <p className="text-zinc-600 font-light text-sm leading-relaxed mb-6 h-20">
+                  {room.desc}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {room.features.map((feat, i) => (
+                    <span key={i} className="text-xs font-medium text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded">
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
+                  <span className="text-sm text-zinc-500">{room.occupancy}</span>
+                  <Link 
+                    href={`/rooms#${room.id}`}
+                    className="text-[#D4AF37] hover:text-zinc-900 font-medium tracking-wide text-sm transition-colors flex items-center gap-1"
+                  >
+                    View Details <span>&rarr;</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
