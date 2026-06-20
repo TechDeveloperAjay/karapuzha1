@@ -6,6 +6,8 @@ import Gallery from "@/components/home/Gallery";
 import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
 import Packages from "@/components/home/Packages";
+import LocationSection from "@/components/home/LocationSection";
+
 
 export default function Home() {
   return (
@@ -16,7 +18,9 @@ export default function Home() {
       <Amenities />
       <Rooms />
       <Testimonials />
+      
       <Gallery />
+      <LocationSection />
       <CTA />
     </>
   );

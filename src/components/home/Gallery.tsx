@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  "/assets/images/gallery1.jpg",
+  "/assets/images/gallery2.jpg",
+  "/assets/images/gallery3.jpg",
+  "/assets/images/gallery4.jpg",
 ];
 
 export default function Gallery() {

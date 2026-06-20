@@ -35,7 +35,8 @@ const packages = [
         description:
             "Luxury accommodation, candlelight dining and private experiences.",
         image:
-            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3",
+            "/assets/images/lakeside_villa.png",
+            // src: "/assets/images/lakeside_villa.png,
     },
     {
         title: "Weekend Escape",
