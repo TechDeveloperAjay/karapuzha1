@@ -7,18 +7,24 @@ import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
 import Packages from "@/components/home/Packages";
 import LocationSection from "@/components/home/LocationSection";
+import NearbyAttractions from "@/components/home/NearbyAttractions";
+import VideoSection from "@/components/home/VideoSection";
+
 
 
 export default function Home() {
   return (
     <>
+
       <Hero />
       <About />
+      <NearbyAttractions />
+      <VideoSection />
       <Packages />
       <Amenities />
       <Rooms />
-      <Testimonials />
-      
+      {/* <Testimonials /> */}
+
       <Gallery />
       <LocationSection />
       <CTA />

@@ -1,108 +1,178 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const packages = [
-    {
-        title: "Corporate Retreat",
-        description:
-            "Perfect for team outings, conferences and executive stays amidst nature.",
-        image:
-            "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-    },
-    {
-        title: "Honeymoon Escape",
-        description:
-            "Romantic experiences crafted for unforgettable moments together.",
-        image:
-            "https://images.unsplash.com/photo-1511285560929-80b456fea0bc",
-    },
-    {
-        title: "Nature Trails",
-        description:
-            "Explore waterfalls, forests and breathtaking viewpoints around Wayanad.",
-        image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    },
-    {
-        title: "Adventure Package",
-        description:
-            "Trekking, camping and thrilling outdoor experiences await.",
-        image:
-            "https://images.unsplash.com/photo-1522163182402-834f871fd851",
-    },
-    {
-        title: "Romantic Getaway",
-        description:
-            "Luxury accommodation, candlelight dining and private experiences.",
-        image:
-            "/assets/images/lakeside_villa.png",
-            // src: "/assets/images/lakeside_villa.png,
-    },
-    {
-        title: "Weekend Escape",
-        description:
-            "Relax, recharge and reconnect with nature over a perfect weekend.",
-        image:
-            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c",
-    },
+import Image from "next/image";
+
+const experiences = [
+  {
+    title: "Dam View",
+    subtitle: "Panoramic Karapuzha Scenery",
+    description:
+      "Enjoy breathtaking views of Karapuzha Dam, surrounded by lush greenery and endless waters.",
+    image: "/assets/images/experiences/image_11.jpg",
+    distance: "5 Mins Away",
+    featured: true,
+  },
+  {
+    title: "Flying Chair",
+    subtitle: "Soar Above The Landscape",
+    description:
+      "Experience thrilling aerial rides while enjoying stunning views of the surroundings.",
+    image: "/assets/images/experiences/image_3.jpg",
+    distance: "5 Mins Away",
+  },
+  {
+    title: "Zipline",
+    subtitle: "Thrilling Reservoir Adventure",
+    description:
+      "Glide across the skies and take in spectacular reservoir views from above.",
+    image: "/assets/images/experiences/image_8.jpg",
+    distance: "7 Mins Away",
+  },
+  {
+    title: "Space Tower",
+    subtitle: "Adrenaline-Packed Free Fall",
+    description:
+      "A thrilling vertical ride designed for adventure lovers and thrill seekers.",
+    image: "/assets/images/experiences/image_9.jpg",
+    distance: "7 Mins Away",
+  },
+  {
+    title: "Flying Cinema",
+    subtitle: "Immersive Virtual Experience",
+    description:
+      "Enjoy an exciting cinematic adventure with motion effects and immersive visuals.",
+    image: "/assets/images/experiences/image_13.jpg",
+    distance: "10 Mins Away",
+  },
+  {
+    title: "Trampoline Park",
+    subtitle: "Family Fun & Endless Energy",
+    description:
+      "Bounce, jump and enjoy endless fun with family and friends in a safe environment.",
+    image: "/assets/images/experiences/image_14.jpg",
+    distance: "10 Mins Away",
+  },
 ];
 
-export default function Packages() {
-    return (
-        <section className="py-24 bg-[#faf7f2]">
-            <div className="container mx-auto px-6">
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                    <span className="uppercase tracking-[0.25em] text-[#B8965A] text-sm font-medium">
-                        Special Experiences
-                    </span>
+export default function ThingsToDo() {
+  const featured = experiences.find((item) => item.featured);
+  const others = experiences.filter((item) => !item.featured);
 
-                    <h2 className="text-5xl font-serif text-[#1C2B1E] mt-4 mb-6">
-                        Delightful Family Getaways
-                    </h2>
+  return (
+    <section className="py-24 bg-white dark:bg-[#0b0f14] transition-colors duration-300">
+      <div className="container mx-auto px-6">
 
-                    <p className="text-gray-600 leading-8">
-                        Experience memorable escapes crafted for couples, families,
-                        adventure seekers and corporate teams amidst the beauty of Wayanad.
-                    </p>
-                </div>
+        {/* Heading */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {packages.map((pkg, index) => (
-                        <div
-                            key={index}
-                            className="group relative overflow-hidden rounded-3xl shadow-lg"
-                        >
-                            <div className="relative h-[420px]">
-                                <Image
-                                    src={pkg.image}
-                                    alt={pkg.title}
-                                    fill
-                                    className="object-cover transition duration-700 group-hover:scale-110"
-                                />
+          <span className="uppercase tracking-[0.3em] text-[#8AA05A] text-sm font-semibold">
+            Things To Do Near Us
+          </span>
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <h2 className="mt-4 text-5xl md:text-6xl font-serif text-[#1f2937] dark:text-white">
+            Explore Adventure Around Karapuzha
+          </h2>
 
-                                <div className="absolute bottom-0 left-0 p-8 text-white">
-                                    <h3 className="text-3xl font-serif mb-3">
-                                        {pkg.title}
-                                    </h3>
+          <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-8 max-w-3xl mx-auto">
+            From thrilling rides and adrenaline-filled adventures to scenic
+            viewpoints and immersive entertainment, discover unforgettable
+            experiences just minutes away from Karapuzha Waterscapes.
+          </p>
+        </div>
 
-                                    <p className="text-white/80 mb-6">
-                                        {pkg.description}
-                                    </p>
+        {/* Featured Card */}
+        {featured && (
+          <div className="mb-10">
+            <div className="group relative overflow-hidden rounded-[32px] h-[550px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
 
-                                    <Link
-                                        href="/contact"
-                                        className="inline-flex items-center px-6 py-3 bg-[#B8965A] text-white rounded-full hover:scale-105 transition"
-                                    >
-                                        Explore Package
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+              <Image
+                src={featured.image}
+                alt={featured.title}
+                fill
+                priority
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+              <div className="absolute top-8 left-8">
+                <span className="px-5 py-2 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-sm text-[#8AA05A] font-semibold text-sm shadow-lg">
+                  {featured.distance}
+                </span>
+              </div>
+
+              <div className="absolute bottom-10 left-10 max-w-2xl text-white">
+                <p className="uppercase tracking-[0.2em] text-sm text-white/80 mb-2">
+                  {featured.subtitle}
+                </p>
+
+                <h3 className="text-5xl font-serif mb-4">
+                  {featured.title}
+                </h3>
+
+                <p className="text-lg text-white/90 leading-8">
+                  {featured.description}
+                </p>
+              </div>
+
             </div>
-        </section>
-    );
+          </div>
+        )}
+
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {others.map((item, index) => (
+            <div
+              key={index}
+              className="
+                group overflow-hidden rounded-[30px]
+                bg-white dark:bg-[#111827]
+                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_10px_40px_rgba(0,0,0,0.5)]
+                hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+                dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+                transition-all duration-500
+              "
+            >
+              <div className="relative h-[320px] overflow-hidden">
+
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute top-4 left-4">
+                  <span className="px-4 py-2 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-sm text-[#8AA05A] text-xs font-semibold shadow-md">
+                    {item.distance}
+                  </span>
+                </div>
+
+              </div>
+
+              <div className="p-8">
+
+                <p className="uppercase tracking-[0.2em] text-[#8AA05A] text-xs font-semibold mb-3">
+                  {item.subtitle}
+                </p>
+
+                <h3 className="text-3xl font-serif text-[#1f2937] dark:text-white mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-300 leading-7">
+                  {item.description}
+                </p>
+
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+  );
 }
