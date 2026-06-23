@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const galleryImages = [
-  "/assets/images/gallery1.jpg",
-  "/assets/images/gallery2.jpg",
+  "/assets/images/gallery1.JPG",
+  "/assets/images/gallery2.JPG",
   "/assets/images/gallery3.jpg",
   "/assets/images/gallery4.jpg",
 ];
@@ -12,7 +12,7 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-24 bg-zinc-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div className="max-w-2xl">
@@ -26,8 +26,8 @@ export default function Gallery() {
               Catch a glimpse of the luxury, nature, and peaceful moments waiting for you at our resort.
             </p>
           </div>
-          <Link 
-            href="/gallery" 
+          <Link
+            href="/gallery"
             className="hidden md:inline-block mt-6 md:mt-0 px-6 py-2 border border-white text-white font-medium tracking-widest uppercase text-sm hover:bg-white hover:text-zinc-900 transition-colors"
           >
             View Full Gallery
@@ -38,7 +38,7 @@ export default function Gallery() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {galleryImages.map((src, idx) => (
             <div key={idx} className="relative h-72 sm:h-80 w-full overflow-hidden group cursor-pointer">
-              <Image 
+              <Image
                 src={src}
                 alt={`Gallery snapshot ${idx + 1}`}
                 fill
@@ -56,8 +56,8 @@ export default function Gallery() {
 
         {/* Mobile View All button */}
         <div className="mt-10 text-center md:hidden">
-          <Link 
-            href="/gallery" 
+          <Link
+            href="/gallery"
             className="inline-block px-8 py-3.5 border border-[#D4AF37] bg-[#D4AF37] text-zinc-900 font-medium tracking-widest uppercase text-sm w-full"
           >
             View Full Gallery
