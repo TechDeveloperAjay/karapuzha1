@@ -24,7 +24,6 @@ export default function Home() {
       <Amenities />
       <Rooms />
       {/* <Testimonials /> */}
-
       <Gallery />
       <LocationSection />
       <CTA />

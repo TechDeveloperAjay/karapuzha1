@@ -20,12 +20,8 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,39 +30,43 @@ export default function Header() {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500
-        ${
-          isScrolled
-            ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-lg border-b border-gray-200 dark:border-zinc-800"
-            : "bg-white dark:bg-black"
+
+        /* LIGHT MODE = WHITE BACKGROUND ALWAYS */
+        bg-white dark:bg-black/70
+        ${isScrolled
+          ? "shadow-md border-b border-black/10 dark:border-white/10 backdrop-blur-xl"
+          : ""
         }
       `}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
 
+          {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-12 h-12">
+            <div className="relative w-11 h-11 lg:w-14 lg:h-14">
               <Image
                 src="/assets/images/logo.jfif"
                 alt="Karapuzha Waterscapes"
                 fill
                 priority
-                className="object-contain rounded-full"
+                className="object-cover rounded-full"
               />
             </div>
 
-            <div className="hidden sm:block">
-              <h2 className="font-serif text-xl font-semibold text-[#1f2937] dark:text-white">
+            <div className="leading-tight">
+              <h1 className="text-black dark:text-white text-base lg:text-lg font-medium tracking-wide">
                 Karapuzha
-              </h2>
+              </h1>
 
-              <p className="text-[11px] uppercase tracking-[0.35em] text-[#8AA05A]">
+              <p className="text-[10px] tracking-[0.35em] uppercase text-black/60 dark:text-white/60">
                 Water Scapes
               </p>
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10">
+          {/* NAV */}
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
 
@@ -74,40 +74,58 @@ export default function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "text-[#8AA05A]"
-                      : "text-gray-600 dark:text-zinc-300 hover:text-[#8AA05A]"
-                  }`}
+                  className={`
+                    relative text-[15px] font-medium tracking-wide
+                    transition-colors duration-300
+
+                    /* LIGHT MODE: BLACK TEXT ALWAYS */
+                    ${isActive
+                      ? "text-[#C89B3C]"
+                      : "text-black hover:text-[#C89B3C] dark:text-white dark:hover:text-white/80"
+                    }
+                  `}
                 >
                   {link.name}
 
                   {isActive && (
-                    <span className="absolute left-0 -bottom-2 h-[2px] w-full rounded-full bg-[#8AA05A]" />
+                    <span className="absolute left-0 -bottom-2 h-[2px] w-full bg-[#C89B3C]" />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          {/* RIGHT ACTIONS */}
+          <div className="hidden lg:flex items-center gap-6">
+
             <ThemeToggle />
 
             <Link
               href="/contact"
-              className="text-sm font-medium text-[#1f2937] dark:text-zinc-200 hover:text-[#8AA05A] transition-colors"
+              className="text-sm font-medium text-black hover:text-[#C89B3C] dark:text-white dark:hover:text-white/80 transition-colors"
             >
               Get In Touch
             </Link>
 
+            {/* BOOK BUTTON */}
             <Link
               href="/#book"
-              className="px-6 py-3 rounded-full bg-[#8AA05A] text-white text-sm font-medium hover:scale-105 hover:shadow-lg transition-all duration-300"
+              className="
+                px-6 py-2.5 rounded-full
+                bg-[#C89B3C]
+                text-white
+                text-sm font-semibold
+                tracking-wide
+                transition-all duration-300
+                hover:opacity-90
+              "
             >
               Book Now
             </Link>
+
           </div>
 
+          {/* MOBILE */}
           <MobileMenu navLinks={navLinks} />
         </div>
       </div>

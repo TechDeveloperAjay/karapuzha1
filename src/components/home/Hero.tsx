@@ -8,21 +8,21 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     id: 1,
-    src: "/assets/images/hero_bg.png",
+    src: "/assets/images/Karapuzha.png",
     title: "Experience Unrivaled Luxury",
     subtitle:
       "A private sanctuary where elegance meets tranquility on the edge of the reservoir.",
   },
   {
     id: 2,
-    src: "/assets/images/lakeside_villa.png",
+    src: "/assets/images/karapuzhaa.png",
     title: "Awaken to Still Waters",
     subtitle:
       "Immerse yourself in breathtaking panoramic views right from your private villa.",
   },
   {
     id: 3,
-    src: "/assets/images/panorama_villa.png",
+    src: "/assets/images/Karapuzha.png",
     title: "Indulge in Serenity",
     subtitle:
       "Discover the perfect blend of modern comfort and pristine natural beauty.",
