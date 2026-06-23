@@ -6,7 +6,7 @@ const rooms = [
     id: "lakeside",
     name: "Lakeside Villa",
     desc: "A beautifully appointed 2-bedroom villa opening directly to views of the Karapuzha Reservoir. Wake to still water and morning mist.",
-    image: "/assets/images/karapuzha.png",
+    image: "/assets/images/room1.png",
     features: ["2 Bedrooms", "Lake View", "Kitchenette", "Garden"],
     occupancy: "Up to 4 guests",
     badge: "Waterfront",
