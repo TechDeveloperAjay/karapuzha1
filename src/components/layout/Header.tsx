@@ -46,7 +46,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <div className="relative w-11 h-11 lg:w-14 lg:h-14">
               <Image
-                src="/assets/images/logo.jfif"
+                src="/assets/images/nearbyloco/logoo.jpg"
                 alt="Karapuzha Waterscapes"
                 fill
                 priority
