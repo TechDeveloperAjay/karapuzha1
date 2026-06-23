@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     id: 1,
-    src: "/assets/images/Karapuzha.png",
+    src: "/assets/images/room1.png",
     title: "Experience Unrivaled Luxury",
     subtitle:
       "A private sanctuary where elegance meets tranquility on the edge of the reservoir.",
