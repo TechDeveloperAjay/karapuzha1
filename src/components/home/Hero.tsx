@@ -22,7 +22,7 @@ const slides = [
   },
   {
     id: 3,
-    src: "/assets/images/Karapuzha.png",
+    src: "/assets/images/room1.png",
     title: "Indulge in Serenity",
     subtitle:
       "Discover the perfect blend of modern comfort and pristine natural beauty.",
