@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Cormorant_Garamond, Jost, Geist } from "next/font/google";
 import "./globals.css";
-
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import WhatsAppConnect from "@/components/layout/WhatsAppConnect";
 import ThemeProvider from "@/components/theme/ThemeProvider";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -37,7 +36,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="scroll-smooth"
+      className={cn("scroll-smooth", "font-sans", geist.variable)}
     >
       <body
         className={`
@@ -51,20 +50,11 @@ export default function RootLayout({
           dark:text-white
           transition-colors
           duration-300
-          flex
-          flex-col
           min-h-screen
         `}
       >
         <ThemeProvider>
-          <Header />
-
-          <main className="flex-grow pt-20">
-            {children}
-          </main>
-
-          <Footer />
-          <WhatsAppConnect />
+          {children}
         </ThemeProvider>
       </body>
     </html>

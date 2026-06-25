@@ -84,7 +84,7 @@ export default function Hero() {
                       {slide.title}
                     </h1>
 
-                    <p className="mx-auto mb-10 max-w-2xl text-lg sm:text-xl font-light tracking-wide text-[#F5F5DC] dark:text-gray-300 drop-shadow-md">
+                    <p className="mx-auto mb-10 max-w-none sm:whitespace-nowrap text-lg sm:text-xl font-light tracking-wide text-[#F5F5DC] dark:text-gray-300 drop-shadow-md">
                       {slide.subtitle}
                     </p>
 

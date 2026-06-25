@@ -9,8 +9,7 @@ import Packages from "@/components/home/Packages";
 import LocationSection from "@/components/home/LocationSection";
 import NearbyAttractions from "@/components/home/NearbyAttractions";
 import VideoSection from "@/components/home/VideoSection";
-
-
+import BlogSection from "@/components/home/BlogSection";
 
 export default function Home() {
   return (
@@ -25,6 +24,7 @@ export default function Home() {
       <Rooms />
       {/* <Testimonials /> */}
       <Gallery />
+      <BlogSection />
       <LocationSection />
       <CTA />
     </>

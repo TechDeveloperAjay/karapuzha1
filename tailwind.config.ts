@@ -12,22 +12,59 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        popover: {
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
       },
 
       fontFamily: {
-        sans: ["var(--font-jost)"],
-        serif: ["var(--font-cormorant)"],
+        sans: ["var(--font-jost)", "ui-sans-serif", "system-ui"],
+        serif: ["var(--font-cormorant)", "ui-serif", "Georgia"],
       },
 
       boxShadow: {
         luxury: "0 20px 50px rgba(0,0,0,0.08)",
       },
+
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
 
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;
