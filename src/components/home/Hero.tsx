@@ -5,23 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-const slides = [
+const defaultSlides = [
   {
-    id: 1,
+    id: "default-1",
     src: "/assets/images/room1.png",
     title: "Experience Unrivaled Luxury",
     subtitle:
       "A private sanctuary where elegance meets tranquility on the edge of the reservoir.",
   },
   {
-    id: 2,
+    id: "default-2",
     src: "/assets/images/karapuzhaa.png",
     title: "Awaken to Still Waters",
     subtitle:
       "Immerse yourself in breathtaking panoramic views right from your private villa.",
   },
   {
-    id: 3,
+    id: "default-3",
     src: "/assets/images/room1.png",
     title: "Indulge in Serenity",
     subtitle:
@@ -29,15 +29,30 @@ const slides = [
   },
 ];
 
-export default function Hero() {
+interface HeroProps {
+  initialSlides?: any[];
+}
+
+export default function Hero({ initialSlides }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = initialSlides && initialSlides.length > 0
+    ? initialSlides.map((slide) => ({
+        id: slide._id || Math.random().toString(),
+        src: slide.image?.url || "/assets/images/room1.png",
+        title: slide.title || "",
+        subtitle: slide.subtitle || "",
+      }))
+    : defaultSlides;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 2000);
+      if (slides.length > 0) {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }
+    }, 4000); // 4 seconds is usually better for reading headings
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-zinc-900 dark:bg-black">

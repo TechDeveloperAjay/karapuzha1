@@ -10,12 +10,15 @@ import LocationSection from "@/components/home/LocationSection";
 import NearbyAttractions from "@/components/home/NearbyAttractions";
 import VideoSection from "@/components/home/VideoSection";
 import BlogSection from "@/components/home/BlogSection";
+import { getHeroSlides } from "@/actions/hero";
 
-export default function Home() {
+export default async function Home() {
+  const slides = await getHeroSlides(true);
+
   return (
     <>
 
-      <Hero />
+      <Hero initialSlides={slides} />
       <About />
       <NearbyAttractions />
       <VideoSection />

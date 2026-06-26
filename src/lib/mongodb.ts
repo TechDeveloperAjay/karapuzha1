@@ -15,6 +15,7 @@ if (!MONGODB_URI) {
 interface MongooseCache {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
+  error: any | null;
 }
 
 declare global {
@@ -28,11 +29,15 @@ let cached = global.mongoose;
 
 export async function dbConnect(): Promise<typeof mongoose> {
   if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
+    cached = global.mongoose = { conn: null, promise: null, error: null };
   }
 
   if (cached.conn) {
     return cached.conn;
+  }
+
+  if (cached.error) {
+    throw cached.error;
   }
 
   if (!cached.promise) {
@@ -43,8 +48,8 @@ export async function dbConnect(): Promise<typeof mongoose> {
       // Auto-create indexes in development but typically disabled in high-traffic production environments
       autoIndex: process.env.NODE_ENV !== "production",
       // Connect timeout and socket settings
-      connectTimeoutMS: 10000,
-      socketTimeoutMS: 45000,
+      connectTimeoutMS: 3000, // Reduced to 3s to prevent long hangs on compilation/dev timeouts
+      socketTimeoutMS: 30000,
     };
 
     cached.promise = mongoose.connect(MONGODB_URI!, opts).then((m) => {
@@ -56,6 +61,7 @@ export async function dbConnect(): Promise<typeof mongoose> {
     cached.conn = await cached.promise;
   } catch (e) {
     cached.promise = null;
+    cached.error = e; // Cache connection error to prevent infinite retry loops in the same lifecycle
     throw e;
   }
 

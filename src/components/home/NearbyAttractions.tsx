@@ -95,7 +95,7 @@ export default function NearbyAttractions() {
               className="
                 group relative overflow-hidden
                 rounded-[26px]
-                h-[320px]
+                h-[250px]
                 shadow-lg
                 hover:shadow-2xl
                 transition-all duration-500
@@ -117,14 +117,14 @@ export default function NearbyAttractions() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               {/* CONTENT */}
-              <div className="absolute bottom-0 p-6 w-full text-white">
+              <div className="absolute bottom-0 p-5 w-full text-white">
 
                 {/* Glass badge */}
                 <div className="inline-flex items-center mb-3 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs tracking-widest uppercase">
                   {item.distance}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-serif mb-2">
+                <h3 className="text-lg md:text-xl font-serif mb-2">
                   {item.title}
                 </h3>
 

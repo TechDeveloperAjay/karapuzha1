@@ -15,7 +15,8 @@ import {
   LogOut,
   ChevronLeft,
   ChevronRight,
-  UserCheck
+  UserCheck,
+  Sliders
 } from "lucide-react";
 import { logoutAdmin } from "@/actions/auth";
 import { useRouter } from "next/navigation";
@@ -31,6 +32,7 @@ export default function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
 
   const menuItems = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
+    { name: "Hero Slides", href: "/admin/hero", icon: Sliders },
     { name: "Rooms", href: "/admin/rooms", icon: BedDouble },
     { name: "Gallery", href: "/admin/gallery", icon: ImageIcon },
     { name: "Blogs", href: "/admin/blogs", icon: FileText },
